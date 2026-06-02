@@ -61,6 +61,8 @@ Compartilhar aprendizados de forma simples.
 
 ## Base de conhecimento
 
+**Antes de tudo — guarda de idempotência:** descubra a data de hoje com `date +%F` e cheque se o `history.md` já tem entrada de hoje (`grep -c "^Data: $(date +%F)" history.md`). Se já existir QUALQUER entrada com a data de hoje, **não gere conteúdo automaticamente**: avise que o conteúdo de hoje já foi gerado e pergunte se quero gerar mesmo assim. Só prossiga se ainda não houver entrada de hoje.
+
 Antes de gerar qualquer ideia:
 
 1. Leia o arquivo `history.md`.
@@ -69,6 +71,8 @@ Antes de gerar qualquer ideia:
 4. Evite reformular a mesma ideia com palavras diferentes.
 5. Busque sempre novos ângulos.
 6. **Varie entre as áreas** ao longo dos 6 vídeos do dia — não concentre tudo em programação. Misture técnico e pessoal.
+7. **Critério de repetição:** considere um tema repetido se, comparado a QUALQUER entrada do `history.md`, combinar a mesma Categoria **e** o mesmo gancho central/aprendizado (ex.: "jiu-jitsu ensina X do trabalho", "bug de Kafka", "IA como ferramenta") — nesse caso, descarte. Repetir só a Categoria é permitido se o gancho for claramente diferente.
+8. **Balanceamento entre dias:** conte quantas vezes cada Categoria já apareceu no `history.md` e priorize as sub-representadas; evite repetir a mesma Categoria no mesmo slot (ex.: Vídeo 1) em dias seguidos. Compare contra TODO o histórico, não só as entradas recentes.
 
 ## Categorias permitidas
 
@@ -86,11 +90,20 @@ Antes de gerar qualquer ideia:
 
 > Você pode propor temas fora dessas categorias se forem realmente interessantes e alinhados ao meu perfil.
 
+## Formatos permitidos
+
+No campo `Formato`, use preferencialmente um destes (mantenha consistência — não invente nomenclatura nova a cada dia):
+- **Talking head** — você falando direto para a câmera.
+- **Screen recording** — gravação de tela/código, com narração.
+- **Voz-off + b-roll** — narração sobre imagens de apoio (treino, bastidores, cotidiano).
+- **Texto na tela** — frases/legendas animadas, com ou sem voz.
+- **Demonstração prática** — mostrar algo sendo feito (exercício, comando, técnica).
+
 ## Regras das ideias
 
 As ideias devem:
 
-- Ter **no máximo 30 segundos** de duração.
+- Caber em **no máximo 30 segundos** de fala — mire **70 a 90 palavras** no roteiro (PT-BR ~2,5–3 palavras/s × 30s; ajuste se seu ritmo for diferente).
 - Ser curtas e fáceis de gravar.
 - Ser **genuinamente interessantes** — nada óbvio, raso ou repetido.
 - Ter potencial de gerar conversa.
@@ -98,6 +111,7 @@ As ideias devem:
 - Não depender de cenários fictícios.
 - Não parecer conteúdo genérico de LinkedIn.
 - **Variar de categoria** ao longo dos 6 vídeos do dia.
+- **Facetas autocontidas:** no máximo 1 dos 6 vídeos pode usar uma faceta não-técnica (jiu-jitsu, treino, ciência, inglês, paternidade, militar) apenas como analogia para dev/carreira. Os demais temas não-técnicos devem se sustentar sozinhos naquela área — sem aterrissar em código, PR ou produtividade no trabalho.
 
 ## Perspectivas (observações por tema)
 
@@ -189,6 +203,8 @@ Observações:
 - Otimista:
 - Pessimista:
 
+> No `Roteiro resumido`, escreva 3–4 frases curtas (70–90 palavras no total) e **termine com a duração estimada** entre parênteses, ex.: `(~28s)`. O `Gancho` deve caber em ~1 frase (primeiros 3 segundos).
+
 # Justificativa
 
 Explique por que escolheu esses temas e como variou entre as áreas.
@@ -197,7 +213,8 @@ Explique por que escolheu esses temas e como variou entre as áreas.
 
 Ao final, **não me peça para copiar e colar nada**. Você mesmo deve:
 
-1. Adicionar os 6 novos temas ao final do arquivo `history.md`, seguindo exatamente o formato do arquivo: `Data: / Tema: / Categoria:` seguido de um bloco `Observações:` com as perspectivas Otimista e Pessimista daquele tema (use a data atual).
-2. Rodar `git add -A`.
-3. Fazer commit com mensagem `conteúdo: ideias de <data>`.
-4. Fazer `git push`.
+1. **Sincronize antes:** `git fetch origin && git pull --rebase origin main`. Como o `history.md` é append-only, o rebase costuma ser limpo.
+2. **Apenas acrescente (append)** as 6 novas entradas ao FINAL do `history.md`, depois das existentes. **NUNCA** edite, reordene, resuma ou reescreva entradas anteriores — preserve o histórico byte a byte. Use o formato exato do bloco `## Formato`: `Data: / Tema: / Categoria:` seguido de `Observações:` com `- Otimista:` e `- Pessimista:`. Separe entradas por UMA linha em branco; **não** use `---` entre elas. Para a data, use o valor de `date +%F` (ISO `AAAA-MM-DD`, ex.: `2026-06-02`) — nunca infira de memória nem copie de outra entrada.
+3. `git add -A`.
+4. Commit com a data em ISO, ex.: `git commit -m "conteúdo: ideias de 2026-06-02"` (substitua pela data de `date +%F`).
+5. `git push`. **Verifique o resultado:** se o rebase der conflito, ou o push for rejeitado (non-fast-forward) ou falhar (rede/chave), **PARE** — não faça merge automático, não use `--force`/`--force-with-lease`, não reescreva histórico. Reporte o erro literal e deixe o commit local intacto (os 6 vídeos já foram entregues na resposta; avise apenas que o versionamento remoto não foi concluído).
