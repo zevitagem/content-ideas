@@ -59,20 +59,24 @@ Criar identificação com gente parecida comigo (devs, atletas, militares, pais,
 
 Compartilhar aprendizados de forma simples.
 
+## Tom e voz
+
+Primeira pessoa, PT-BR direto e **provocativo**. Cada vídeo deve **abrir com uma opinião forte, um contra-senso ou uma pergunta incômoda** que gere debate nos comentários — nunca com aviso/disclaimer ou rodeio. Defenda um ponto de vista com nuance (sem ser raso nem polêmico gratuito), provoque reflexão e termine puxando reação. Continua valendo: nada de guru, fórmula mágica ou cara de LinkedIn genérico.
+
 ## Base de conhecimento
 
 **Antes de tudo — guarda de idempotência:** descubra a data de hoje com `date +%F` e cheque se o `history.md` já tem entrada de hoje (`grep -c "^Data: $(date +%F)" history.md`). Se já existir QUALQUER entrada com a data de hoje, **não gere conteúdo automaticamente**: avise que o conteúdo de hoje já foi gerado e pergunte se quero gerar mesmo assim. Só prossiga se ainda não houver entrada de hoje.
 
 Antes de gerar qualquer ideia:
 
-1. Leia o arquivo `history.md`.
+1. Leia o `history.md`. Para deduplicação e balanceamento, use a **janela recente** — entradas dos **últimos 90 dias** (se houver menos histórico, considere tudo). Entradas mais antigas podem ter migrado para `history-archive.md`; não precisa lê-las.
 2. Analise todos os conteúdos já sugeridos.
 3. Evite repetir temas.
 4. Evite reformular a mesma ideia com palavras diferentes.
 5. Busque sempre novos ângulos.
 6. **Varie entre as áreas** ao longo dos 6 vídeos do dia — não concentre tudo em programação. Misture técnico e pessoal.
-7. **Critério de repetição:** considere um tema repetido se, comparado a QUALQUER entrada do `history.md`, combinar a mesma Categoria **e** o mesmo gancho central/aprendizado (ex.: "jiu-jitsu ensina X do trabalho", "bug de Kafka", "IA como ferramenta") — nesse caso, descarte. Repetir só a Categoria é permitido se o gancho for claramente diferente.
-8. **Balanceamento entre dias:** conte quantas vezes cada Categoria já apareceu no `history.md` e priorize as sub-representadas; evite repetir a mesma Categoria no mesmo slot (ex.: Vídeo 1) em dias seguidos. Compare contra TODO o histórico, não só as entradas recentes.
+7. **Critério de repetição:** considere um tema repetido se, comparado a qualquer entrada da janela recente (últimos 90 dias), combinar a mesma Categoria **e** o mesmo gancho central/aprendizado (ex.: "jiu-jitsu ensina X do trabalho", "bug de Kafka", "IA como ferramenta") — nesse caso, descarte. Repetir só a Categoria é permitido se o gancho for claramente diferente.
+8. **Balanceamento entre dias:** conte quantas vezes cada Categoria apareceu na janela recente (últimos 90 dias) e priorize as sub-representadas; evite repetir a mesma Categoria no mesmo slot (ex.: Vídeo 1) em dias seguidos.
 
 ## Categorias permitidas
 
@@ -112,6 +116,7 @@ As ideias devem:
 - Não parecer conteúdo genérico de LinkedIn.
 - **Variar de categoria** ao longo dos 6 vídeos do dia.
 - **Facetas autocontidas:** no máximo 1 dos 6 vídeos pode usar uma faceta não-técnica (jiu-jitsu, treino, ciência, inglês, paternidade, militar) apenas como analogia para dev/carreira. Os demais temas não-técnicos devem se sustentar sozinhos naquela área — sem aterrissar em código, PR ou produtividade no trabalho.
+- **Multi-plataforma:** os vídeos são verticais (9:16) para Reels, Shorts e TikTok ao mesmo tempo — gancho nos primeiros 3 segundos, sem depender de recurso exclusivo de uma plataforma. CTAs simples e universais (comentar / seguir / salvar).
 
 ## Perspectivas (observações por tema)
 
@@ -203,7 +208,7 @@ Observações:
 - Otimista:
 - Pessimista:
 
-> No `Roteiro resumido`, escreva 3–4 frases curtas (70–90 palavras no total) e **termine com a duração estimada** entre parênteses, ex.: `(~28s)`. O `Gancho` deve caber em ~1 frase (primeiros 3 segundos).
+> No `Roteiro resumido`, escreva 3–4 frases curtas (70–90 palavras no total) e **termine com a duração estimada** entre parênteses, ex.: `(~28s)`. O `Gancho` deve caber em ~1 frase (primeiros 3 segundos) e ser **provocativo** — opinião forte, contra-senso ou pergunta incômoda.
 
 # Justificativa
 
@@ -218,3 +223,7 @@ Ao final, **não me peça para copiar e colar nada**. Você mesmo deve:
 3. `git add -A`.
 4. Commit com a data em ISO, ex.: `git commit -m "conteúdo: ideias de 2026-06-02"` (substitua pela data de `date +%F`).
 5. `git push`. **Verifique o resultado:** se o rebase der conflito, ou o push for rejeitado (non-fast-forward) ou falhar (rede/chave), **PARE** — não faça merge automático, não use `--force`/`--force-with-lease`, não reescreva histórico. Reporte o erro literal e deixe o commit local intacto (os 6 vídeos já foram entregues na resposta; avise apenas que o versionamento remoto não foi concluído).
+
+## Manutenção do histórico (ocasional)
+
+Quando o `history.md` ultrapassar **~200 entradas**, faça uma limpeza pontual: mova as entradas com mais de **90 dias** para o fim de `history-archive.md` (crie o arquivo se não existir, com o mesmo cabeçalho de formato) e remova-as do `history.md`. Esta é a **única exceção** à regra de só-append — faça com cuidado, conferindo que nenhuma entrada se perdeu (total antes = arquivadas + restantes), e em **commit separado** (`chore: arquiva histórico antigo`).
