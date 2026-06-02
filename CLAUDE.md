@@ -22,6 +22,7 @@ O gerador roda **uma única vez por dia**, no início do dia, e produz **6 víde
 3. Cada ideia deve ser **genuinamente interessante** e render um vídeo de **no máximo 30 segundos**.
 4. Gere a resposta no formato exato de `prompt.md`: 6 vídeos em Manhã/Tarde/Noite (2 cada), cada um com `Tema / Categoria / Formato / Gancho / Roteiro resumido / CTA`, seguidos da **Justificativa**.
 5. Sinta-se livre para introduzir temas/categorias novos quando forem realmente interessantes e alinhados ao perfil.
+6. **Para cada tema, gere um bloco `Observações:`** com uma possível resposta em pelo menos 2 perspectivas (Otimista e Pessimista; cética quando couber) — substancial e honesta, com trade-offs reais. Serve pra o usuário comparar com a visão dele e ter munição em temas que não domina. Vai tanto no vídeo quanto gravado no `history.md`.
 
 ## Versionamento automático (sem copiar/colar manual)
 

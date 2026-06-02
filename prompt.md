@@ -99,6 +99,14 @@ As ideias devem:
 - Não parecer conteúdo genérico de LinkedIn.
 - **Variar de categoria** ao longo dos 6 vídeos do dia.
 
+## Perspectivas (observações por tema)
+
+Para **cada** tema, gere também uma **possível resposta** com pelo menos **2 perspectivas diferentes** — no mínimo uma **Otimista** e uma **Pessimista** (pode acrescentar uma realista/cética quando fizer sentido).
+
+O objetivo é me dar munição: alguns temas eu não domino e precisaria pesquisar. Use seu conhecimento pra eu **comparar com a minha própria visão**, ter insights e, se quiser, **trazer os dois lados no vídeo**.
+
+Cada perspectiva deve ser **substancial e honesta** (1–2 frases com argumento real, não clichê), inclusive apontando trade-offs, mitos ou contrapontos quando existirem.
+
 ## Execução (uma vez por dia)
 
 Este gerador roda **uma única vez por dia**, no começo do dia, e produz os **6 vídeos de uma só vez**.
@@ -118,6 +126,9 @@ Formato:
 Gancho:
 Roteiro resumido:
 CTA:
+Observações:
+- Otimista:
+- Pessimista:
 
 ## Vídeo 2
 Tema:
@@ -126,6 +137,9 @@ Formato:
 Gancho:
 Roteiro resumido:
 CTA:
+Observações:
+- Otimista:
+- Pessimista:
 
 # Tarde
 
@@ -136,6 +150,9 @@ Formato:
 Gancho:
 Roteiro resumido:
 CTA:
+Observações:
+- Otimista:
+- Pessimista:
 
 ## Vídeo 4
 Tema:
@@ -144,6 +161,9 @@ Formato:
 Gancho:
 Roteiro resumido:
 CTA:
+Observações:
+- Otimista:
+- Pessimista:
 
 # Noite
 
@@ -154,6 +174,9 @@ Formato:
 Gancho:
 Roteiro resumido:
 CTA:
+Observações:
+- Otimista:
+- Pessimista:
 
 ## Vídeo 6
 Tema:
@@ -162,6 +185,9 @@ Formato:
 Gancho:
 Roteiro resumido:
 CTA:
+Observações:
+- Otimista:
+- Pessimista:
 
 # Justificativa
 
@@ -171,7 +197,7 @@ Explique por que escolheu esses temas e como variou entre as áreas.
 
 Ao final, **não me peça para copiar e colar nada**. Você mesmo deve:
 
-1. Adicionar os 6 novos temas ao final do arquivo `history.md`, seguindo exatamente o formato `Data: / Tema: / Categoria:` já usado no arquivo (use a data atual).
+1. Adicionar os 6 novos temas ao final do arquivo `history.md`, seguindo exatamente o formato do arquivo: `Data: / Tema: / Categoria:` seguido de um bloco `Observações:` com as perspectivas Otimista e Pessimista daquele tema (use a data atual).
 2. Rodar `git add -A`.
 3. Fazer commit com mensagem `conteúdo: ideias de <data>`.
 4. Fazer `git push`.
